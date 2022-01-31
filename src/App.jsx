@@ -26,7 +26,6 @@ const url = import.meta.env.VITE_URL
 
 function App() {
   const data = useGet(url)
-  // console.log(env)
   return (
     <div>
       <h1>My Wallet</h1>
