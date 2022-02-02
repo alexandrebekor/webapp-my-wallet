@@ -1,4 +1,5 @@
-import { useGet, usePost, useDelete } from "./rest"
+import { Link } from "react-router-dom"
+import { useGet, usePost, useDelete } from "../../utils/rest"
 
 const Home = () => {
   const results = useGet('report')
@@ -55,7 +56,9 @@ const Home = () => {
               { Object.keys(results.data).map(item => {
                 return (
                   <tr key={item}>
-                    <td>{ item }</td>
+                    <td>
+                      <Link to={`/mes/${item}`}>{ item }</Link>
+                    </td>
                     <td>{ results.data[item].input_prevision }</td>
                     <td>{ results.data[item].output_prevision }</td>
                     <td>{ results.data[item].input }</td>

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
-import About from "./about"
-import Home from "./Home"
-import NotFound from "./NotFound"
+import About from "./pages/About"
+import Home from "./pages/Home"
+import NotFound from "./pages/NotFound"
 import Teste from "./Teste"
 
 const App = () => {
