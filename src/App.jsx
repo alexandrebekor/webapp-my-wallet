@@ -1,26 +1,10 @@
-import axios from "axios"
-import useDelete from "./useDelete"
-import useGet from "./useGet"
-import usePost from "./usePost"
+import { useGet, usePost, useDelete } from "./rest"
 
-/**
- *  transactions {
- *    YYYY-MM {
- *      DD {
- *        id {
- *          value,
- *          description
- *        }
- *      }
- *    }
- *  }
- */
-
-const url = `${import.meta.env.VITE_URL}/2022-01/31.json`
+const BASE_URL = import.meta.env.VITE_URL
 
 function App() {
-  const data = useGet(url)
-  const [postData, post] = usePost(url)
+  const data = useGet('2022-02')
+  const [postData, post] = usePost('2022-02')
   const [destroyData, destroy] = useDelete()
 
   const handleSave = () => {
@@ -28,7 +12,7 @@ function App() {
   }
 
   const handleDelete = () => {
-    destroy('https://api-my-wallet-default-rtdb.firebaseio.com/transactions/2022-01/31/-MumFaVv-RtV2NyRJ7li.json')
+    destroy('2022-02')
   }
 
   return (
