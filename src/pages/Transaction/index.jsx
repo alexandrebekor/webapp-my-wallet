@@ -1,6 +1,5 @@
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
-import { useGet } from "../../utils/rest"
+import { useParams } from 'react-router-dom'
+import { useGet } from '../../utils/rest'
 
 const Transaction = () => {
   const { date } = useParams()
@@ -18,19 +17,19 @@ const Transaction = () => {
           </tr>
         </thead>
         <tbody>
-          { Object.keys(results.data).map(item => {
+          {Object.keys(results.data).map(item => {
             return (
-              <tr key={ item }>
-                <td>{ results.data[item].day }</td>
-                <td>{ results.data[item].description }</td>
-                <td>{ results.data[item].value }</td>
+              <tr key={item}>
+                <td>{results.data[item].day}</td>
+                <td>{results.data[item].description}</td>
+                <td>{results.data[item].value}</td>
                 <td>
-                  { results.data[item].done && <input type="checkbox" checked /> }
-                  { !results.data[item].done && <input type="checkbox" /> }
+                  {results.data[item].done && <input type="checkbox" checked />}
+                  {!results.data[item].done && <input type="checkbox" />}
                 </td>
               </tr>
             )
-          }) }
+          })}
         </tbody>
       </table>
     </div>
