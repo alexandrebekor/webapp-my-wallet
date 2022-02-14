@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom"
-import { useGet, usePost, useDelete } from "../../utils/rest"
+import { Link } from 'react-router-dom'
+import { useGet, usePost, useDelete } from '../../utils/rest'
 
 const Home = () => {
   const results = useGet('report')
@@ -7,7 +7,7 @@ const Home = () => {
   const [destroyData, destroy] = useDelete()
 
   const handleSave = () => {
-    post({value: 20, description: 'teste'})
+    post({ value: 20, description: 'teste' })
   }
 
   const handleDelete = () => {
@@ -38,8 +38,8 @@ const Home = () => {
         <option value="11">11</option>
         <option value="12">12</option>
       </select>
-      { results.loading && <h2>Carregando</h2> }
-      { !results.loading && (
+      {results.loading && <h2>Carregando</h2>}
+      {!results.loading && (
         <div>
           <p>Tabela</p>
           <table>
@@ -53,25 +53,25 @@ const Home = () => {
               </tr>
             </thead>
             <tbody>
-              { Object.keys(results.data).map(item => {
+              {Object.keys(results.data).map(item => {
                 return (
                   <tr key={item}>
                     <td>
-                      <Link to={`/mes/${item}`}>{ item }</Link>
+                      <Link to={`/mes/${item}`}>{item}</Link>
                     </td>
-                    <td>{ results.data[item].input_prevision }</td>
-                    <td>{ results.data[item].output_prevision }</td>
-                    <td>{ results.data[item].input }</td>
-                    <td>{ results.data[item].output }</td>
+                    <td>{results.data[item].input_prevision}</td>
+                    <td>{results.data[item].output_prevision}</td>
+                    <td>{results.data[item].input}</td>
+                    <td>{results.data[item].output}</td>
                   </tr>
                 )
-              }) }
+              })}
             </tbody>
           </table>
         </div>
-      ) }
+      )}
     </div>
-  ) 
+  )
 }
 
 export default Home
