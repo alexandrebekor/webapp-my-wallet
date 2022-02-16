@@ -1,5 +1,7 @@
 # My Wallet
 
+Gerenciamento de gastos e investimentos.
+
 ## Techs
 
 - React.js
