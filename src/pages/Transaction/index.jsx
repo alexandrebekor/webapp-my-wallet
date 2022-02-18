@@ -49,7 +49,9 @@ const Transaction = () => {
 
   return (
     <div>
-      {!resultsReport.loading && <pre>{JSON.stringify(resultsReport)} </pre>}
+      {!resultsReport.loading && resultsReport && (
+        <pre>{JSON.stringify(resultsReport)} </pre>
+      )}
       <table>
         <thead>
           <tr>
@@ -59,18 +61,19 @@ const Transaction = () => {
           </tr>
         </thead>
         <tbody>
-          {Object.keys(results.data).map(item => {
-            return (
-              <tr key={item}>
-                <td>{results.data[item].day}</td>
-                <td>{results.data[item].description}</td>
-                <td>{results.data[item].price}</td>
-                <td>
-                  <button onClick={() => handleDestroy(item)}>Remove</button>
-                </td>
-              </tr>
-            )
-          })}
+          {results.data &&
+            Object.keys(results.data).map(item => {
+              return (
+                <tr key={item}>
+                  <td>{results.data[item].day}</td>
+                  <td>{results.data[item].description}</td>
+                  <td>{results.data[item].price}</td>
+                  <td>
+                    <button onClick={() => handleDestroy(item)}>Remove</button>
+                  </td>
+                </tr>
+              )
+            })}
           <tr>
             <td>
               <input
