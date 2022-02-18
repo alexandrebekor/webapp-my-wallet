@@ -65,4 +65,16 @@ const useDelete = () => {
   return [data, destroy]
 }
 
-export { useGet, usePost, useDelete }
+const usePatch = () => {
+  const [data, dispatch] = useReducer(reducer, INITIAL_STATE)
+
+  const patch = async (resource, data) => {
+    dispatch({ type: 'REQUEST' })
+    await axios.patch(`${BASE_URL}/${resource}.json`, data)
+    dispatch({ type: 'SUCCESS' })
+  }
+
+  return [data, patch]
+}
+
+export { useGet, usePost, useDelete, usePatch }

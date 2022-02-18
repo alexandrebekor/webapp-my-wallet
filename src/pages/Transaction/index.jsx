@@ -5,6 +5,7 @@ import { useDelete, useGet, usePost } from '../../utils/rest'
 const Transaction = () => {
   const { date } = useParams()
   const results = useGet(`transactions/${date}`)
+  const resultsReport = useGet(`report/${date}`)
   const [dataPost, post] = usePost(`transactions/${date}`)
   const [dataDestroy, destroy] = useDelete()
   const [form, setForm] = useState({
@@ -31,6 +32,7 @@ const Transaction = () => {
         price: parseFloat(price)
       })
       results.refetch()
+      resultsReport.refetch()
       setForm({
         day: '',
         description: '',
@@ -42,10 +44,12 @@ const Transaction = () => {
   const handleDestroy = async id => {
     await destroy(`transactions/${date}/${id}`)
     results.refetch()
+    resultsReport.refetch()
   }
 
   return (
     <div>
+      {!resultsReport.loading && <pre>{JSON.stringify(resultsReport)} </pre>}
       <table>
         <thead>
           <tr>
