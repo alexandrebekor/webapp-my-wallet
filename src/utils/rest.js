@@ -30,7 +30,7 @@ const useGet = resource => {
   const [data, dispatch] = useReducer(reducer, INITIAL_STATE)
   const reloadPage = async () => {
     dispatch({ type: 'REQUEST' })
-    const response = await axios.get(BASE_URL + resource)
+    const response = await axios.get(`${BASE_URL}/${resource}.json`)
     dispatch({ type: 'SUCCESS', data: response.data })
   }
 

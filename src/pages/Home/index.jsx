@@ -4,7 +4,7 @@ import AddMonth from '../../components/Form/AddMonth'
 import { useGet } from '../../utils/rest'
 
 const Home = () => {
-  const results = useGet('/report.json')
+  const results = useGet('report')
 
   return (
     <div>
