@@ -4,7 +4,7 @@ import AddMonth from '../../components/Form/AddMonth'
 import { useGet } from '../../utils/rest'
 
 const Home = () => {
-  const results = useGet('report')
+  const results = useGet('/report.json')
 
   return (
     <div>
@@ -25,9 +25,7 @@ const Home = () => {
               </tr>
             </thead>
             <tbody>
-              {results.data && (
-                  <pre>{JSON.stringify(results, results.data)}</pre>
-                ) &&
+              {results.data &&
                 Object.keys(results.data).map(item => {
                   return (
                     <tr key={item}>
