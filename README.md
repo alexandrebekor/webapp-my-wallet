@@ -10,3 +10,5 @@ Gerenciamento de gastos e investimentos.
 - Tailwind.css
 - Firebase Realtime
 - Firebase Cloud Functions
+- Git Actions (CI)
+- Prettier
