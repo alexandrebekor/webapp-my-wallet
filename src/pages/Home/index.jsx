@@ -25,19 +25,22 @@ const Home = () => {
               </tr>
             </thead>
             <tbody>
-              {Object.keys(results.data).map(item => {
-                return (
-                  <tr key={item}>
-                    <td>
-                      <Link to={`/mes/${item}`}>{item}</Link>
-                    </td>
-                    <td>{results.data[item].input_prevision}</td>
-                    <td>{results.data[item].output_prevision}</td>
-                    <td>{results.data[item].input}</td>
-                    <td>{results.data[item].output}</td>
-                  </tr>
-                )
-              })}
+              {results.data && (
+                  <pre>{JSON.stringify(results, results.data)}</pre>
+                ) &&
+                Object.keys(results.data).map(item => {
+                  return (
+                    <tr key={item}>
+                      <td>
+                        <Link to={`/mes/${item}`}>{item}</Link>
+                      </td>
+                      <td>{results.data[item].input_prevision}</td>
+                      <td>{results.data[item].output_prevision}</td>
+                      <td>{results.data[item].input}</td>
+                      <td>{results.data[item].output}</td>
+                    </tr>
+                  )
+                })}
             </tbody>
           </table>
         </div>
