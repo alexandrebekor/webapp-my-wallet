@@ -1,20 +1,25 @@
-# Workbook
+# 💻 Workbook
 
 [Design no Figma](https://www.figma.com/file/nuodG3B6kIlHHJjqlsz6IH/My-Wallet?node-id=2%3A64)
 
 ## 🤔 About the Project
 
-Blog sobre Desenvolvimento web, carreira e negócios com foco em programação.
+Gerenciamento de contas à pagar e à receber.
 
 ```mermaid
-flowchart LR;
-    Admin-->Auth
-    subgraph Backend
-      Auth<-->Database
+flowchart RL;
+    subgraph backend
+    style backend fill:#DCDCDC, stroke-width: 0
+      subgraph Firebase
+        style Firebase stroke-width: 0
+        Auth<-->Database
+      end
     end
-    subgraph Frontend
+    subgraph frontend
+    style frontend fill:#DCDCDC, stroke-width: 0
       Admin
     end
+    Firebase<-->Admin
 ```
 
 ## 🧪 Tech Stack

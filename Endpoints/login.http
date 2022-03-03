@@ -1,8 +1,0 @@
-POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={{$dotenv FIREBASE_KEY}}
-content-type: application/json
-
-{
-  "email": "{{$dotenv FIREBASE_EMAIL}}",
-  "password": "{{$dotenv FIREBASE_PASSWORD}}",
-  "returnSecureToken": true
-}
